@@ -1,0 +1,14 @@
+{
+  "name": "random-chat-app",
+  "version": "1.0.0",
+  "description": "Text-only random stranger chat with a self-declared age gate and basic safety filters.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "bad-words": "^3.0.4"
+  }
+}
