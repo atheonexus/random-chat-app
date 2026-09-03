@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StrangerText — random chat</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="gate" class="screen">
+  <div class="card">
+    <h1>StrangerText</h1>
+    <p class="tagline">Text chat with a random stranger. No account, no video.</p>
+    <p class="liveStats" id="liveStatsGate">Connecting…</p>
+
+    <div class="rules">
+      <p><strong>Before you start:</strong></p>
+      <ul>
+        <li>This site is for adults (18+) only.</li>
+        <li>No sexual content, harassment, or illegal content. Chats that suggest a user is under 18 are ended automatically.</li>
+        <li>Be kind. You can Skip or Report anyone, anytime.</li>
+        <li>Read the full <a href="#" id="openGuidelines">community guidelines</a>.</li>
+      </ul>
+    </div>
+
+    <label class="confirm">
+      <input type="checkbox" id="ageCheckbox" />
+      I confirm that I am 18 years of age or older, and I agree to the community guidelines.
+    </label>
+
+    <button id="enterBtn" disabled>Start chatting</button>
+  </div>
+</div>
+
+<div id="guidelines" class="screen hidden">
+  <div class="card">
+    <h2>Community Guidelines</h2>
+    <ol>
+      <li>You must be 18 or older to use this site.</li>
+      <li>No sexual content involving, or messages suggesting the presence of, anyone under 18. These conversations are ended automatically and logged for review.</li>
+      <li>No harassment, hate speech, threats, or doxxing.</li>
+      <li>No sharing or soliciting illegal content of any kind.</li>
+      <li>No spam, advertising, or bots.</li>
+      <li>Use the Report button for anything that violates these rules. Reports are reviewed by the site operator.</li>
+      <li>This is an anonymous service with a self-declared age check. It does not verify identity or age, and is not a substitute for supervision of minors.</li>
+    </ol>
+    <button id="closeGuidelines">Back</button>
+  </div>
+</div>
+
+<div id="chat" class="screen hidden">
+  <header class="chatHeader">
+    <span id="statusText">Connecting…</span>
+    <span class="liveStats" id="liveStatsChat"></span>
+    <div class="actions">
+      <button id="skipBtn" title="Disconnect and find someone new">Next stranger</button>
+      <button id="reportBtn" title="Report this stranger">Report</button>
+      <button id="leaveBtn" title="Leave chat">Leave</button>
+    </div>
+  </header>
+
+  <div id="messages"></div>
+
+  <form id="messageForm" class="composer">
+    <input id="messageInput" type="text" maxlength="2000" placeholder="Type a message…" autocomplete="off" disabled />
+    <button type="submit" disabled id="sendBtn">Send</button>
+  </form>
+</div>
+
+<div id="reportModal" class="modal hidden">
+  <div class="card">
+    <h3>Report this stranger</h3>
+    <p>What happened? (optional, helps review)</p>
+    <textarea id="reportReason" maxlength="500" placeholder="e.g. sexual content, harassment, said they were underage…"></textarea>
+    <div class="modalActions">
+      <button id="cancelReport">Cancel</button>
+      <button id="submitReport" class="danger">Submit report</button>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
